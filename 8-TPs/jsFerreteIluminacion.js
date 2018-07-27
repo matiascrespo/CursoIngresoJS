@@ -10,6 +10,7 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
+	
 	var precioUnitario;
 	var precioFinal;
 	var cantidad;
@@ -17,7 +18,7 @@ function CalcularPrecio ()
 	var marca;
 	var iibb;
 	
-	
+
 
 	precioUnitario=35;
 	cantidad=document.getElementById('Cantidad').value;
@@ -27,90 +28,77 @@ function CalcularPrecio ()
 	precioFinal=parseInt(precioFinal);
 	
 
+
 	if(cantidad>5)
 	{
 		precioFinal=precioBruto*0.50;
 	}
-	else
-	{
-		if(cantidad>4&&marca=="ArgentinaLuz")
-		{
-			precioFinal=precioBruto*0.60;
-		}
 		else
 		{
-			if(cantidad>4&&marca!="ArgentinaLuz")
-			{ 
-				precioFinal=precioBruto*0.70;
-			}
-			else
+			if(cantidad>4)
 			{
-				if(cantidad>3&&marca=="ArgentinaLuz")
+				switch(marca)
 				{
-					precioFinal=precioBruto*0.75;
-				}
-				else
-				{
-					if(cantidad>3&&marca=="FelipeLamparas")
+				case "ArgentinaLuz":
+				precioFinal=precioBruto*0.6;
+				break;
+
+				default:
+				precioFinal=precioBruto*0.7;
+				break;
+				 }
+			}	 
+		 	
+		 	
+				else if(cantidad>3)						 
 					{
+						switch(marca)
+						{
+						case "ArgentinaLuz":
 						precioFinal=precioBruto*0.75;
-					}
-					else 
-					{
-						if(cantidad>3&&marca=="JeLuz")
-					
-						{
-							precioFinal=precioBruto*0.8;
+						break;
+
+						case "FelipeLamparas":
+						precioFinal=precioBruto*0.75;
+						break;
+
+						default:
+						precioFinal=precioBruto*0.8;
+						break;
 						}
-						else
-						{
-							if(cantidad>3&&marca=="HazIluminacion")
-							{
-								precioFinal=precioBruto*0.8;
-							}
-							else
-							{
-								if(cantidad>3&&marca=="Osram")
-								{
-									precioFinal=precioBruto*0.8;
-								}
+					}	
+
 							
-							else 
+					else if(cantidad>2)
 							{
-							if(cantidad>2&&marca=="ArgentinaLuz")
+							switch(marca)
 							{
+								case "ArgentinaLuz":
 								precioFinal=precioBruto*0.85;
+								break;
+
+								case "FelipeLamparas":
+								precioFinal=precioBruto*0.9;
+								break;
+
+								default:
+								precioFinal=precioBruto*0.95;
+							}	
+							
 							}
-								else
-								{
-									if(cantidad>2&&marca=="FelipeLamparas")
-									{
-										precioFinal=precioBruto*0.9;
-									}
-									else
-									{
-										precioFinal=precioBruto*0.95;
-									}								
-								}							
-							}
-						
-							}								
-						}	
-					}
-				}
-			}
 		}
-	}
 
 	if(precioFinal>120)
-	{
+	{	
 		iibb=precioFinal*0.10;
 		precioFinal=precioFinal+iibb;
-		alert("Usted pago $"+iibb+" de IIBB.");
+		alert("Usted pago $"+iibb+ " de IIBB.")
 	}
-	
-	
-	document.getElementById('precioDescuento').value=precioFinal;		
-													
+
+						
+							
+	document.getElementById('precioDescuento').value=precioFinal;
+
+
 }
 
