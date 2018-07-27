@@ -26,7 +26,7 @@ function CalcularPrecio ()
 	precioBruto=precioUnitario*cantidad
 	marca=document.getElementById('Marca').value;
 	precioFinal=parseInt(precioFinal);
-	
+
 	switch(cantidad)
 	{
 		case 1:
@@ -38,83 +38,64 @@ function CalcularPrecio ()
 		break;
 
 		case 5:
-		if(marca=="ArgentinaLuz")
-		{	
-		precioFinal=precioBruto*0.6;
-		}
-		else
+		switch(marca)
 		{
-			if(marca!="ArgentinaLuz")
-			{
-				precioFinal=precioBruto*0.7;
-			}
-		}
-		break;
-	
+			case "ArgentinaLuz":
+			precioFinal=precioBruto*0.6;
+			break;
+
+			default:
+			precioFinal=precioBruto*0.7;
+			break;
 		
-
+		
 		case 4:
-		if(marca=="ArgentinaLuz")
+		switch(marca)
 		{
+			case "ArgentinaLuz":
+			case "FelipeLamparas":
 			precioFinal=precioBruto*0.75;
-		}
-		else
-		{
-			if(marca=="FelipeLamparas")
-			{
-				precioFinal=precioBruto*0.75;
-			}
-			else
-			{
-				precioFinal=precioBruto*0.8;
-			}
-		}
-		break;
+			break;
 
+			default:
+			precioFinal=precioBruto*0.8;
+			break;
+		
+		
 
 		case 3:
-		if(marca=="ArgentinaLuz")
+		switch(marca)
 		{
+			case "ArgentinaLuz":
 			precioFinal=precioBruto*0.85;
-		}
-		else
-		{
-			if(marca=="FelipeLamparas")
-			{
-				precioFinal=precioBruto*0.9;
-			}
-			else
-			{
-				precioFinal=precioBruto*0.95;
-			}
+			break;
+
+			case "FelipeLamparas":
+			precioFinal=precioBruto*0.9;
+			break;
+
+			default:
+			precioFinal=precioBruto*0.95;
+			break;
 		}
 		
+		case 6:
+		precioFinal=precioBruto*0.5;
 		break;
-		
-		
-			
+
 		default:
 		precioFinal=precioBruto*0.5;
 		break;
-	}	
-
-
-	if(precioFinal>120)
-	{
-		iibb=precioFinal*0.1;
-		precioFinal=precioFinal+iibb
-		alert("Usted pago "+iibb+" de IIBB.")
+		
+		}
 	}
-		
-		
-	
+	}
 
 
 
 
-						
-							
 	document.getElementById('precioDescuento').value=precioFinal;
+
 
 
 }
