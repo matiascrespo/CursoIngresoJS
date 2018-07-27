@@ -27,73 +27,90 @@ function CalcularPrecio ()
 	marca=document.getElementById('Marca').value;
 	precioFinal=parseInt(precioFinal);
 	
-
-
-	if(cantidad>5)
+	switch(cantidad)
 	{
-		precioFinal=precioBruto*0.50;
-	}
+		case 1:
+		precioFinal=precioUnitario;
+		break;
+
+		case 2:
+		precioFinal=precioUnitario*2;
+		break;
+
+		case 5:
+		if(marca=="ArgentinaLuz")
+		{	
+		precioFinal=precioBruto*0.6;
+		}
 		else
 		{
-			if(cantidad>4)
+			if(marca!="ArgentinaLuz")
 			{
-				switch(marca)
-				{
-				case "ArgentinaLuz":
-				precioFinal=precioBruto*0.6;
-				break;
-
-				default:
 				precioFinal=precioBruto*0.7;
-				break;
-				 }
-			}	 
-		 	
-		 	
-				else if(cantidad>3)						 
-					{
-						switch(marca)
-						{
-						case "ArgentinaLuz":
-						precioFinal=precioBruto*0.75;
-						break;
-
-						case "FelipeLamparas":
-						precioFinal=precioBruto*0.75;
-						break;
-
-						default:
-						precioFinal=precioBruto*0.8;
-						break;
-						}
-					}	
-
-							
-					else if(cantidad>2)
-							{
-							switch(marca)
-							{
-								case "ArgentinaLuz":
-								precioFinal=precioBruto*0.85;
-								break;
-
-								case "FelipeLamparas":
-								precioFinal=precioBruto*0.9;
-								break;
-
-								default:
-								precioFinal=precioBruto*0.95;
-							}	
-							
-							}
+			}
 		}
+		break;
+	
+		
+
+		case 4:
+		if(marca=="ArgentinaLuz")
+		{
+			precioFinal=precioBruto*0.75;
+		}
+		else
+		{
+			if(marca=="FelipeLamparas")
+			{
+				precioFinal=precioBruto*0.75;
+			}
+			else
+			{
+				precioFinal=precioBruto*0.8;
+			}
+		}
+		break;
+
+
+		case 3:
+		if(marca=="ArgentinaLuz")
+		{
+			precioFinal=precioBruto*0.85;
+		}
+		else
+		{
+			if(marca=="FelipeLamparas")
+			{
+				precioFinal=precioBruto*0.9;
+			}
+			else
+			{
+				precioFinal=precioBruto*0.95;
+			}
+		}
+		
+		break;
+		
+		
+			
+		default:
+		precioFinal=precioBruto*0.5;
+		break;
+	}	
+
 
 	if(precioFinal>120)
-	{	
-		iibb=precioFinal*0.10;
-		precioFinal=precioFinal+iibb;
-		alert("Usted pago $"+iibb+ " de IIBB.")
+	{
+		iibb=precioFinal*0.1;
+		precioFinal=precioFinal+iibb
+		alert("Usted pago "+iibb+" de IIBB.")
 	}
+		
+		
+	
+
+
+
 
 						
 							
