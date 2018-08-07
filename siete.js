@@ -1,69 +1,108 @@
 function mostrar()
 {
-	var contador;
-	var nombre;	
-	var sexo;
-	var edad;
-	var nota;
-	var peorNota;
+	//alert("comentar esta linea 7");
 
+	var nombre;
+	var ancho;
+	var alto;
+	var largo;
+	var peso;
+	var contador;
+	var masPesado;
+	var alturaMasAlta;
+	var	cantidadPesoEntre300y600
+	var AnchoMenosAncho;	
 
 	contador=0;
-
-
+	cantidadPesoEntre300y600=0;
+	
 	while(contador<5)
 	{
-		nombre=prompt("Ingrese su nombre");
+		contador++;
+		
 
-		sexo=prompt("Ingrese sexo");
-		while(sexo!= 'f' && sexo!= 'm')
+		nombre=prompt("Ingrese nombre");
 
+		ancho=prompt("Ingrese ancho");
+		ancho=parseInt(ancho);
+
+		while(isNaN(ancho) || ancho>10 || ancho <0)
 		{
-			sexo=prompt("Ingrese f/m.");
-			
+			ancho=prompt("Error, Ingrese ancho");
+			ancho=parseInt(ancho);
 		}
 
-		edad=prompt("Ingrese su edad");
-		while(isNan(edad) || edad<0 || edad>100)
+		largo=prompt("Ingrese largo");
+		largo=parseInt(largo);
 
+		while(isNaN(largo) ||largo>10 || largo <0)
 		{
-			edad=prompt("Ingrese una edad entre 0 y 100.");
-			
+			largo=prompt("Error, Ingrese largo");
+			largo=parseInt(largo);
 		}
 
-		nota=prompt("Ingrese una nota");
-		nota=parseInt(nota);
+		peso=prompt("Ingrese peso");
+		peso=parseInt(peso);
 
-		while(nota<0 && nota>10)
+		while(peso>1000 || isNaN(peso))
 		{
-			nota=prompt("Ingrese una nota entre 0 y 10.");
-			nota=parseInt(nota);
+			peso=prompt("Error, Ingrese peso");
+			peso=parseInt(peso);
 		}
 
-	contador++;
 
-	if(contador==1)
-	{
-		peorNota=nota;
-		peorNotaSexo=sexo;
-	}
-	else{
-		if(nota<peorNota)
+		if(contador==1)
 		{
-			peorNota=nota;
-			peorNotaSexo=sexo;
+			masPesado=peso;
+			alturaMasAlta=alto;
+			AnchoMenosAncho=ancho;
+			contador=2;
 		}
-	}
+		else
+		{
+				if(peso>masPesado)
+				{
+					masPesado=peso;
+				}
+				if(alto>alturaMasAlta)
+				{
+					alturaMasAlta=alto;
+				}
+				if(ancho<AnchoMenosAncho)
+				{
+					AnchoMenosAncho=ancho;
+				}
+		}
 
-
+		if(peso>299 && peso<601)
+		{
+			cantidadPesoEntre300y600++;
+		}
 
 
 
 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 
-	alert("El sexo de la peor nota es "+peorNotaSexo);
-	
+	alert("El mas pesado es "+masPesado);
+	alert("La altura mas alta es "+alturaMasAlta);
+	alert("El ancho menoss ancho es "+AnchoMenosAncho);
+	alert("La cantidad de peso entre 300 y 600 es "+cantidadPesoEntre300y600);
 
 
 }
